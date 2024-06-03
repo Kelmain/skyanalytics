@@ -119,8 +119,8 @@ def download_logs():
         None
     """
     # Base URL and file extension are assumed to be defined elsewhere
-    url_logs_flights = URL + LOGS_FLIGHTS
-    url_flight_damage = URL + FLIGHT_DAMAGE
+    url_logs_flights = URL
+    url_flight_damage = URL
     # Generate filenames with today's date
     file_name_logs_flights = LOGS_FLIGHTS + datetime.now().strftime("%Y-%m-%d") + FILE_EXT
     file_name_flight_damage = FLIGHT_DAMAGE + datetime.now().strftime("%Y-%m-%d") + FILE_EXT
