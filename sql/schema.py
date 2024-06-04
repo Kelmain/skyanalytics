@@ -17,6 +17,7 @@ def create_table():
     c.execute(
         """CREATE TABLE IF NOT EXISTS composants
              (ref_compo string [primary key],
+              categorie string,
               aero string ,
               desc varchar(255),
               lifespan int,

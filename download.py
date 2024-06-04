@@ -7,6 +7,7 @@ from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
 import requests
 from pythonjsonlogger import jsonlogger
+from sql.import_files import import_files
 import schedule
 import time
 
@@ -141,6 +142,8 @@ def download_logs():
     # Log the result of the downloads
     if all(results):
         logger.info("All files for %s downloaded successfully.", datetime.now().strftime("%Y-%m-%d"))
+        import_files(file_name_logs_flights, 'logs_vol')
+        import_files(file_name_flight_damage, 'degradation')
     else:
         logger.error("One or more files for %s failed to download.", datetime.now().strftime("%Y-%m-%d"))
 
