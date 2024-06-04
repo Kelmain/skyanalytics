@@ -7,8 +7,8 @@ from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
 import requests
 from pythonjsonlogger import jsonlogger
-#import schedule
-#import time
+import schedule
+import time
 
 
 
@@ -148,17 +148,23 @@ def download_logs():
 # added windows task scheduler to run the script every day at 17:00
 
 #def job():
-    #print("Starting the download process...")
-    #download_logs()
-    #print("Download process completed.")
+#    logger.info("Starting the download process...")
+#    download_logs()
+#    logger.info("Download process completed.")
 
 # Schedule the job every day at a specific time, e.g., 3 AM
-#schedule.every().day.at("03:00").do(job)
+#schedule.every().day.at("17:00" "Europe/Paris").do(job)
 
 # Keep the script running
-#while True:
+#while 1:
+    #n =  schedule.idle_seconds()
+    #if n > None:
+         # no more jobs
+    #    break
+    #elif n > 0:
+        # sleep
+    #    time.sleep(n)
     #schedule.run_pending()
-    #time.sleep(1)
 
 if __name__ == "__main__":
     download_logs()
