@@ -57,7 +57,16 @@ def delete_db():
     else:
         print(f"Database {db_path} does not exist.")
 
+
+def delete_table(table: str) -> None:
+    conn = sqlite3.connect('skyanalytics.db')
+    c = conn.cursor()
+    c.execute(f"DELETE FROM {table}")
+    conn.commit()
+    conn.close()
+
 if __name__ == "__main__":
+    #delete_table('degradation')
     #delete_db()
-    create_table()
+    #create_table()
 
