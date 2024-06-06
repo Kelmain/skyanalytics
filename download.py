@@ -150,24 +150,24 @@ def download_logs():
 
 # added windows task scheduler to run the script every day at 17:00
 
-#def job():
-#    logger.info("Starting the download process...")
-#    download_logs()
-#    logger.info("Download process completed.")
+def job():
+    logger.info("Starting the download process...")
+    download_logs()
+    logger.info("Download process completed.")
 
 # Schedule the job every day at a specific time, e.g., 3 AM
-#schedule.every().day.at("17:00" "Europe/Paris").do(job)
+schedule.every().day.at("17:00" "Europe/Paris").do(job)
 
 # Keep the script running
-#while 1:
-    #n =  schedule.idle_seconds()
-    #if n > None:
+while 1:
+    n =  schedule.idle_seconds()
+    if n > None:
          # no more jobs
-    #    break
-    #elif n > 0:
+        break
+    elif n > 0:
         # sleep
-    #    time.sleep(n)
-    #schedule.run_pending()
+        time.sleep(n)
+    schedule.run_pending()
 
-if __name__ == "__main__":
-    download_logs()
+#if __name__ == "__main__":
+    #download_logs()

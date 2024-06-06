@@ -2,7 +2,7 @@ import os
 import sqlite3
 
 def create_table():
-    conn = sqlite3.connect('skyanalytics.db')
+    conn = sqlite3.connect('skyanalytics_swamp.db')
     c = conn.cursor()
     c.execute(
         """CREATE TABLE IF NOT EXISTS airplanes
@@ -50,7 +50,7 @@ def create_table():
     conn.close()
 
 def delete_db():
-    db_path = 'skyanalytics.db'
+    db_path = 'skyanalytics_swamp.db'
     if os.path.exists(db_path):
         os.remove(db_path)
         print(f"Database {db_path} deleted.")
@@ -59,14 +59,31 @@ def delete_db():
 
 
 def delete_table(table: str) -> None:
-    conn = sqlite3.connect('skyanalytics.db')
+    conn = sqlite3.connect('skyanalytics_swamp.db')
     c = conn.cursor()
     c.execute(f"DELETE FROM {table}")
     conn.commit()
     conn.close()
 
+def add_table() -> None:
+    conn = sqlite3.connect('skyanalytics_swamp.db')
+    c = conn.cursor()
+    c.execute(
+        """CREATE TABLE IF NOT EXISTS airplanes
+             (ref_aero string [primary key],
+              type_model string,
+              debut_service date,
+              last_maint datetime,
+              en_maintenance bool,
+              end_maint datetime)"""
+    )
+    conn.commit()
+    conn.close()
+
+
 if __name__ == "__main__":
     #delete_table('degradation')
     #delete_db()
     #create_table()
+    add_table()
 
