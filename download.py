@@ -156,18 +156,12 @@ def job():
     logger.info("Download process completed.")
 
 # Schedule the job every day at a specific time, e.g., 3 AM
-schedule.every().day.at("17:00" "Europe/Paris").do(job)
+schedule.every().day.at("14:00").do(job)
 
 # Keep the script running
 while 1:
-    n =  schedule.idle_seconds()
-    if n > None:
-         # no more jobs
-        break
-    elif n > 0:
-        # sleep
-        time.sleep(n)
     schedule.run_pending()
+    time.sleep(1)
 
 #if __name__ == "__main__":
     #download_logs()

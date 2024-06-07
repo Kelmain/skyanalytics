@@ -20,6 +20,6 @@ def import_files(filename: str, table: str) -> None:
 
 
 
-#import_files(r'C:\Users\Work\Desktop\projects\skyanalytics\datasets_raw\degradations_2024-06-04.csv', 'degradation')
+#import_files(r'C:\Users\Work\Desktop\projects\skyanalytics\datasets_raw\degradations_2024-06-07.csv', 'degradation')
 
 

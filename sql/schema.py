@@ -69,13 +69,13 @@ def add_table() -> None:
     conn = sqlite3.connect('skyanalytics_swamp.db')
     c = conn.cursor()
     c.execute(
-        """CREATE TABLE IF NOT EXISTS airplanes
-             (ref_aero string [primary key],
-              type_model string,
-              debut_service date,
-              last_maint datetime,
-              en_maintenance bool,
-              end_maint datetime)"""
+        """CREATE TABLE IF NOT EXISTS degradation
+             (ref_deg string,
+              linked_aero string,
+              compo_concerned string,
+              usure_cumulee float,
+              measure_day date,
+              need_replacement bool)"""
     )
     conn.commit()
     conn.close()
@@ -84,6 +84,6 @@ def add_table() -> None:
 if __name__ == "__main__":
     #delete_table('degradation')
     #delete_db()
-    #create_table()
-    add_table()
+    create_table()
+    #add_table()
 
